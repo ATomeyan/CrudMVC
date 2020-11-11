@@ -43,7 +43,6 @@ public class UserController {
         else {
             model.addAttribute("user", new User());
         }
-
         return "updateUserList";
     }
 
