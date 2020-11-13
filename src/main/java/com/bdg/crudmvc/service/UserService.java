@@ -40,11 +40,20 @@ public class UserService {
         userRepository.save(user);
     }
 
-    public User updateUser(User user, int id) {
-        user.setId(id);
-        userRepository.save(user);
+    public User updateUser(User user) {
+        Optional<User> userOptional = userRepository.findById(user.getId());
 
-        return user;
+        if (userOptional.isPresent()) {
+            User newUser = userOptional.get();
+            newUser.setF_Name(user.getF_Name());
+            newUser.setL_Name(user.getL_Name());
+            newUser.setEmail(user.getEmail());
+            newUser = userRepository.save(newUser);
+            return newUser;
+        } else {
+            user = userRepository.save(user);
+            return user;
+        }
     }
 
     public void deleteById(int id) {

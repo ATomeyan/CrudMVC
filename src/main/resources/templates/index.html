@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="eng" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -14,7 +14,7 @@
         <div class="card-body">
             <div th:switch="${userLists}" class="container my-5">
                 <p class="my-5">
-                    <a href="/updateUser" class="btn btn-primary">
+                    <a href="/addUser" class="btn btn-primary">
                         <i class="fas fa-user-plus ml-2"> Add User </i></a>
                 </p>
                 <div class="col-md-10">
@@ -36,7 +36,7 @@
                                 <td th:text="${user.l_Name}"></td>
                                 <td th:text="${user.email}"></td>
                                 <td>
-                                    <a th:href="@{/update/{id}(id=${user.id})}" class="btn btn-primary">
+                                    <a th:href="@{/updateUser(id=${user.id})}" class="btn btn-primary">
                                         <i class="fas fa-user-edit ml-2"></i>
                                     </a>
                                 </td>
